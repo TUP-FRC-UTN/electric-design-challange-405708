@@ -1,5 +1,269 @@
 {
-  "budgets": [],
+  "budgets": [
+    {
+      "id": "11",
+      "client": "1",
+      "date": "2024-11-07",
+      "moduleType": [
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "client": "1",
+      "date": "2024-11-08",
+      "moduleType": []
+    },
+    {
+      "id": "11",
+      "client": "1",
+      "date": "2024-11-08",
+      "moduleType": []
+    },
+    {
+      "id": "560",
+      "client": "Wachoooo",
+      "date": "2024-11-08",
+      "moduleType": []
+    },
+    {
+      "id": "803",
+      "client": "2",
+      "date": "2024-11-08",
+      "moduleType": [
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Comedor"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Comedor"
+        },
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Living"
+        }
+      ]
+    },
+    {
+      "id": "309",
+      "client": "2",
+      "date": "2024-11-08",
+      "moduleType": [
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Comedor"
+        },
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Comedor"
+        },
+        {
+          "id": "5",
+          "price": 1700,
+          "slots": 3,
+          "zone": "Living"
+        },
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Cocina"
+        },
+        {
+          "id": "6",
+          "price": 5000,
+          "slots": 1,
+          "zone": "Cocina"
+        }
+      ]
+    },
+    {
+      "id": "927",
+      "client": "10",
+      "date": "2024-11-08",
+      "moduleType": [
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Living"
+        },
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Comedor"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Dormitorio"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Dormitorio"
+        }
+      ]
+    },
+    {
+      "id": "798",
+      "client": "Wachoooo",
+      "date": "2024-11-08",
+      "moduleType": [
+        {
+          "id": "2",
+          "price": 2000,
+          "slots": 2,
+          "zone": "Comedor"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "slots": 1,
+          "zone": "Comedor"
+        }
+      ]
+    },
+    {
+      "id": "611",
+      "client": "Wachooooaaaaa",
+      "date": "2024-11-08",
+      "moduleType": [
+        {
+          "id": "1",
+          "price": 1000,
+          "name": "",
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "name": "",
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "name": "",
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "name": "",
+          "slots": 1,
+          "zone": "Comedor"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "name": "",
+          "slots": 1,
+          "zone": "Comedor"
+        }
+      ]
+    },
+    {
+      "id": "401",
+      "client": "Loquita",
+      "date": "2024-11-08",
+      "moduleType": [
+        {
+          "id": "2",
+          "price": 2000,
+          "name": "Interruptor doble",
+          "slots": 2,
+          "zone": "Living"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "name": "Interruptor simple",
+          "slots": 1,
+          "zone": "Living"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "name": "Toma corriente simple",
+          "slots": 1,
+          "zone": "Comedor"
+        },
+        {
+          "id": "1",
+          "price": 1000,
+          "name": "Interruptor simple",
+          "slots": 1,
+          "zone": "Comedor"
+        },
+        {
+          "id": "3",
+          "price": 1500,
+          "name": "Toma corriente simple",
+          "slots": 1,
+          "zone": "Cocina"
+        }
+      ]
+    }
+  ],
   "module-types": [
     {
       "id": "1",

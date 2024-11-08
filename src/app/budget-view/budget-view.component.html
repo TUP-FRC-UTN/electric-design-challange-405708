@@ -1,1 +1,21 @@
-<!-- BUILD IT FROM HERE https://getbootstrap.com/docs/5.3/components/card/#sizing -->
+<div style="border: 1px solid lightgray;" class="p-4">
+    <h5>Presupuesto prueba #{{budget.id}}</h5>
+    <p>Cajas necesarias: <strong>{{budget.moduleType.length}}</strong></p>
+
+    <div *ngIf="zoneAnalysis && getObjectKeys(zoneAnalysis).length > 0">
+        <div *ngFor="let zone of getObjectKeys(zoneAnalysis)" class="mb-3">
+            <h5>{{zone}}</h5>
+            <div *ngFor="let module of zoneAnalysis[zone].modules">
+                <div class="d-flex justify-content-between">
+                    <span>{{module.name}}</span>
+                    <span>${{module.price}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p *ngIf="!zoneAnalysis || getObjectKeys(zoneAnalysis).length === 0">
+        Cargando datos...
+    </p>
+
+    <p>Total Cotizacion: <strong>{{total}}</strong></p>
+</div>
