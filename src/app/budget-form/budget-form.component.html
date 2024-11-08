@@ -1,4 +1,149 @@
-<!-- BUILT IT FROM:
-https://getbootstrap.com/docs/5.3/forms/form-control/#example
-https://getbootstrap.com/docs/5.3/forms/select/#default
-https://getbootstrap.com/docs/5.3/forms/select/#default -->
+<div class="container">
+    <form [formGroup]="reactiveForm" (ngSubmit)="save()">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Cliente</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="exampleFormControlInput1"
+            formControlName="cliente"
+            [ngClass]="onValidate('cliente')"
+            >
+            @if (reactiveForm.controls["cliente"]; as cliente) { 
+                @if(cliente.errors?.['required']) {
+                  <span class="invalid-feedback">Debe ingresar el campo cliente</span>
+                }
+                @if(cliente.errors?.['budgetLimit']) {
+                    <span class="invalid-feedback">Maximo 1 budget por cliente</span>
+                  }  
+            }
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Fecha</label>
+            <input 
+            type="date" 
+            class="form-control" 
+            id="exampleFormControlInput1"
+            formControlName="fecha"
+            [ngClass]="onValidate('fecha')"
+            >
+          </div>
+          @if (reactiveForm.controls["fecha"]; as fecha) {
+            @if(fecha.touched && fecha.errors?.['required']) {
+              <span class="invalid-feedback">Es requerida</span>
+            }
+            @if(fecha.errors?.['greaterThanToday']){
+                <span class="invalid-feedback">No puede ser mayor a hoy</span>
+            }
+        }
+        <br />
+        <br />
+
+            <div class="text-end">
+                <button
+                type="button"
+                class="btn btn-primary float-end"
+                (click)="onNewEvent()"
+              >
+                +Modulo
+              </button>
+            </div>
+            <div class="row col-3">
+              <h4>Modulos:</h4>
+            </div>
+      
+            <div class="row" formArrayName="modulos">
+              @for (item of modulos.controls; track $index) {
+              <div class="col-6">
+                <div [formGroupName]="$index">
+                  <h6>Modulo #{{ $index + 1 }}</h6>
+                  <div class="mb-3">
+                    <label for="type" class="form-label">Tipo Modulo</label>
+                    <select class="form-select" id="type" formControlName="id" 
+                    [ngClass]="onValidateFrmAr($index, 'id')">
+                      <!--Cargador por API-->
+                      @for(type of selectTypes; track type; let index =
+                      $index){
+                      <option [value]="type?.id">{{ type.name }}</option>
+                      }
+                    </select>
+                    @if(item.get('id')?.touched && item.get('id')?.invalid){
+                        <span class="invalid-feedback"
+                        >Debe seleccionar una opcion</span>
+                    }
+                  </div>
+                  <div class="mb-3">
+                    <label for="zone" class="form-label">Ambiente</label>
+                    <select class="form-select" id="zone" formControlName="zone"
+                    [ngClass]="onValidateFrmAr($index, 'zone')">
+                      <!--Cargador por API-->
+                      @for(zone of ambientes; track zone; let index =
+                      $index){
+                      <option [value]="zone">{{ zone }}</option>
+                      }
+                    </select>
+                    @if(item.get('zone')?.touched && item.get('zone')?.invalid){
+                        <span class="invalid-feedback"
+                        >Debe seleccionar una opcion</span>
+                    }
+                  </div>
+                  <div class="mb-3">
+                    <label for="price" class="form-label">Precio</label>
+                    <input
+                      formControlName="price"
+                      type="number"
+                      class="form-control"
+                      id="price"
+                      readonly
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="slots" class="form-label">Lugares</label>
+                    <input
+                      formControlName="slots"
+                      type="number"
+                      class="form-control"
+                      id="slots"
+                      readonly
+                    />
+                    @if (reactiveForm.controls["modulos"].errors?.['slotsExceeded']) {
+                        @if (reactiveForm.controls["modulos"].errors?.['slotsExceeded'].zones.includes(item.get('zone')?.value)) {
+                            <span class="invalid-feedback d-block">
+                                Esta zona ya tiene asignados más de 3 slots en total.
+                            </span>
+                        }
+                    }
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="onDeleteEvent($index)"
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+              </div>
+              }
+              @if(modulosLength < 5 && reactiveForm.get('cliente')?.invalid){
+                <span color="red">Minimo 5 modulos</span>
+              }
+            </div>
+            @if (reactiveForm.controls["modulos"].errors?.['slotsExceeded']) {
+                <div class="alert alert-danger">
+                    No puedes asignar más de 3 slots por zona.
+                </div>
+            }
+            
+
+            <button
+            class="btn btn-primary float-end"
+            type="submit"
+            [disabled]="reactiveForm.invalid || reactiveForm.value.modulos < 1"
+          >
+            Registrar
+          </button>
+
+    </form>
+</div>

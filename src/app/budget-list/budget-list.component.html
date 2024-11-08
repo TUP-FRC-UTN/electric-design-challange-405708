@@ -1,1 +1,39 @@
 <!-- BUILD IT FROM HERE https://getbootstrap.com/docs/5.3/content/tables/#striped-rows -->
+<div class="container">
+
+    <div class="row col-3">
+      <h1>Budgets</h1>
+    </div>
+    
+      
+    <div class="container" style="border: 1px solid lightgray; border-radius: 10px;">
+      <input type="text" 
+      placeholder="Search by customer name or email..." 
+      class="form-control" style="margin: 10px;" 
+      id="search"
+      [formControl]="searchTerm">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">*</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Modulos</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(budget of budgets; track budget; let index = $index){
+                <tr>
+                    <td>{{ budget.id }}</td>
+                    <td>{{ budget.client }}</td>
+                    <td>{{ budget.date }}</td>
+                    <td>{{ budget.moduleType.length }}</td>
+                    <td><button class="btn btn-info" (click)="toDetail(budget.id)">Ver más</button></td>
+                  </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+  
+  </div>
